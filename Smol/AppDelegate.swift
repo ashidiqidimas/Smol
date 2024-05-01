@@ -11,7 +11,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         let window = MainWindow(
-            contentRect: NSRect(origin: .zero, size: .init(width: 200, height: 320))
+            contentRect: NSRect(origin: .zero, size: .init(width: 320, height: 280))
         )
         window.center()
         

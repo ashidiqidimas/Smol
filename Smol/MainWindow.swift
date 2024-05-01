@@ -12,7 +12,7 @@ class MainWindow: NSWindow {
     init(contentRect: NSRect) {
         super.init(
             contentRect: contentRect,
-            styleMask: [.closable, .miniaturizable, .fullSizeContentView, .titled],
+            styleMask: [.closable, .miniaturizable, .fullSizeContentView, .titled, .resizable],
             backing: .buffered,
             defer: false
         )
