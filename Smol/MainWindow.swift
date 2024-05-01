@@ -21,4 +21,9 @@ class MainWindow: NSWindow {
         titlebarAppearsTransparent = true
         titleVisibility  = .hidden
     }
+    
+    override func close() {
+        let app = NSApplication.shared
+        app.terminate(nil)
+    }
 }

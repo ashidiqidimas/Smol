@@ -44,7 +44,7 @@ struct StartView: View {
                             
                     switch result {
                         case .success(let url):
-                        print(url)
+                        handle(url)
                         case .failure(let error):
                             print(error)
                     }
@@ -55,6 +55,28 @@ struct StartView: View {
         .ignoresSafeArea()
         .dynamicTypeSize(.large)
     }
+    
+    func handle(_ url: URL) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            guard let window = NSApplication.shared.mainWindow else { return }
+            
+            window.setSizeWithAnimation(to: CGSize(width: 800, height: 600))
+            window.styleMask.insert(.resizable)
+        }
+    }
+    
+}
+
+extension NSWindow {
+    
+
+    
+}
+
+extension NSPoint {
+    
+ 
+    
 }
 
 #Preview {
