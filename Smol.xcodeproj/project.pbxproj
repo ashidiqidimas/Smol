@@ -14,6 +14,7 @@
 		13FEBC502BE1E90D005A9A0B /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FEBC4F2BE1E90D005A9A0B /* MainWindow.swift */; };
 		13FEBC522BE1E9D6005A9A0B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FEBC512BE1E9D6005A9A0B /* MainViewController.swift */; };
 		13FEBC542BE1ED4C005A9A0B /* StartScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FEBC532BE1ED4B005A9A0B /* StartScreen.swift */; };
+		13FEBC562BE1F5EF005A9A0B /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FEBC552BE1F5EF005A9A0B /* MainMenu.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		13FEBC4F2BE1E90D005A9A0B /* MainWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
 		13FEBC512BE1E9D6005A9A0B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		13FEBC532BE1ED4B005A9A0B /* StartScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreen.swift; sourceTree = "<group>"; };
+		13FEBC552BE1F5EF005A9A0B /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			children = (
 				13FEBC3B2BE1E6F4005A9A0B /* AppDelegate.swift */,
 				13FEBC532BE1ED4B005A9A0B /* StartScreen.swift */,
+				13FEBC552BE1F5EF005A9A0B /* MainMenu.swift */,
 				13FEBC4F2BE1E90D005A9A0B /* MainWindow.swift */,
 				13FEBC512BE1E9D6005A9A0B /* MainViewController.swift */,
 				13FEBC4A2BE1E825005A9A0B /* main.swift */,
@@ -145,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13FEBC502BE1E90D005A9A0B /* MainWindow.swift in Sources */,
+				13FEBC562BE1F5EF005A9A0B /* MainMenu.swift in Sources */,
 				13FEBC3C2BE1E6F4005A9A0B /* AppDelegate.swift in Sources */,
 				13FEBC542BE1ED4C005A9A0B /* StartScreen.swift in Sources */,
 				13FEBC4B2BE1E825005A9A0B /* main.swift in Sources */,

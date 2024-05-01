@@ -12,11 +12,12 @@ class MainWindow: NSWindow {
     init(contentRect: NSRect) {
         super.init(
             contentRect: contentRect,
-            styleMask: [.closable, .miniaturizable, .fullSizeContentView, .titled, .resizable],
+            styleMask: [.closable, .miniaturizable, .fullSizeContentView, .titled],
             backing: .buffered,
             defer: false
         )
-        
+   
+        title = "Smol"
         titlebarAppearsTransparent = true
         titleVisibility  = .hidden
     }

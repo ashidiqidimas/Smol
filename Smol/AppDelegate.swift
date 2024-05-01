@@ -18,6 +18,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let vc = MainViewController()
         window.setContentViewController(vc)
         window.makeKeyAndOrderFront(nil)
+        
+        NSApplication.shared.mainMenu = MainMenu()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

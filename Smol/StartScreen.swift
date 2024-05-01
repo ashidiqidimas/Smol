@@ -33,7 +33,7 @@ struct StartView: View {
                     Text("Select a File")
                         .font(.system(.title3, design: .rounded))
                         .padding(.horizontal, 12)
-                        .frame(height: 40)
+                        .frame(height: 36)
                         .background(.blue)
                         .cornerRadius(8)
                 }
@@ -53,6 +53,7 @@ struct StartView: View {
         }
         .padding(EdgeInsets(top: 48, leading: 40, bottom: 40, trailing: 40))
         .ignoresSafeArea()
+        .dynamicTypeSize(.large)
     }
 }
 
