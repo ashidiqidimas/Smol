@@ -5,16 +5,19 @@
 //  Created by Dimas on 01/05/24.
 //
 
-import Cocoa
+import AppKit
 
-@main
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    
-
-
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
+        let window = MainWindow(
+            contentRect: NSRect(origin: .zero, size: .init(width: 200, height: 320))
+        )
+        window.center()
+        
+        let vc = MainViewController()
+        window.setContentViewController(vc)
+        window.makeKeyAndOrderFront(nil)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -25,6 +28,4 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return true
     }
 
-
 }
-

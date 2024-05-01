@@ -3,23 +3,26 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		13FEBC3C2BE1E6F4005A9A0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FEBC3B2BE1E6F4005A9A0B /* AppDelegate.swift */; };
-		13FEBC3E2BE1E6F4005A9A0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FEBC3D2BE1E6F4005A9A0B /* ViewController.swift */; };
 		13FEBC402BE1E6F6005A9A0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13FEBC3F2BE1E6F6005A9A0B /* Assets.xcassets */; };
-		13FEBC432BE1E6F6005A9A0B /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 13FEBC422BE1E6F6005A9A0B /* Base */; };
+		13FEBC4B2BE1E825005A9A0B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FEBC4A2BE1E825005A9A0B /* main.swift */; };
+		13FEBC4E2BE1E8AC005A9A0B /* MacKit in Frameworks */ = {isa = PBXBuildFile; productRef = 13FEBC4D2BE1E8AC005A9A0B /* MacKit */; };
+		13FEBC502BE1E90D005A9A0B /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FEBC4F2BE1E90D005A9A0B /* MainWindow.swift */; };
+		13FEBC522BE1E9D6005A9A0B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FEBC512BE1E9D6005A9A0B /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		13FEBC382BE1E6F4005A9A0B /* Smol.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Smol.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13FEBC3B2BE1E6F4005A9A0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		13FEBC3D2BE1E6F4005A9A0B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		13FEBC3F2BE1E6F6005A9A0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		13FEBC422BE1E6F6005A9A0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		13FEBC442BE1E6F6005A9A0B /* Smol.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Smol.entitlements; sourceTree = "<group>"; };
+		13FEBC4A2BE1E825005A9A0B /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		13FEBC4F2BE1E90D005A9A0B /* MainWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
+		13FEBC512BE1E9D6005A9A0B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +30,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13FEBC4E2BE1E8AC005A9A0B /* MacKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,9 +57,10 @@
 			isa = PBXGroup;
 			children = (
 				13FEBC3B2BE1E6F4005A9A0B /* AppDelegate.swift */,
-				13FEBC3D2BE1E6F4005A9A0B /* ViewController.swift */,
+				13FEBC4F2BE1E90D005A9A0B /* MainWindow.swift */,
+				13FEBC512BE1E9D6005A9A0B /* MainViewController.swift */,
+				13FEBC4A2BE1E825005A9A0B /* main.swift */,
 				13FEBC3F2BE1E6F6005A9A0B /* Assets.xcassets */,
-				13FEBC412BE1E6F6005A9A0B /* Main.storyboard */,
 				13FEBC442BE1E6F6005A9A0B /* Smol.entitlements */,
 			);
 			path = Smol;
@@ -77,6 +82,9 @@
 			dependencies = (
 			);
 			name = Smol;
+			packageProductDependencies = (
+				13FEBC4D2BE1E8AC005A9A0B /* MacKit */,
+			);
 			productName = Smol;
 			productReference = 13FEBC382BE1E6F4005A9A0B /* Smol.app */;
 			productType = "com.apple.product-type.application";
@@ -105,6 +113,9 @@
 				Base,
 			);
 			mainGroup = 13FEBC2F2BE1E6F4005A9A0B;
+			packageReferences = (
+				13FEBC4C2BE1E8AC005A9A0B /* XCLocalSwiftPackageReference "../../../Shared/Swift Packages/MacKit" */,
+			);
 			productRefGroup = 13FEBC392BE1E6F4005A9A0B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -120,7 +131,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				13FEBC402BE1E6F6005A9A0B /* Assets.xcassets in Resources */,
-				13FEBC432BE1E6F6005A9A0B /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,23 +141,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13FEBC3E2BE1E6F4005A9A0B /* ViewController.swift in Sources */,
+				13FEBC502BE1E90D005A9A0B /* MainWindow.swift in Sources */,
 				13FEBC3C2BE1E6F4005A9A0B /* AppDelegate.swift in Sources */,
+				13FEBC4B2BE1E825005A9A0B /* main.swift in Sources */,
+				13FEBC522BE1E9D6005A9A0B /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		13FEBC412BE1E6F6005A9A0B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				13FEBC422BE1E6F6005A9A0B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		13FEBC452BE1E6F6005A9A0B /* Debug */ = {
@@ -344,6 +345,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		13FEBC4C2BE1E8AC005A9A0B /* XCLocalSwiftPackageReference "../../../Shared/Swift Packages/MacKit" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../../../Shared/Swift Packages/MacKit";
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		13FEBC4D2BE1E8AC005A9A0B /* MacKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MacKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 13FEBC302BE1E6F4005A9A0B /* Project object */;
 }
