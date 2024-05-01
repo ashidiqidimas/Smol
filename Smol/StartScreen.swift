@@ -9,7 +9,11 @@ import SwiftUI
 
 struct StartView: View {
     
-    @State var isImporting = false
+    @ObservedObject private var vm: StartScreenViewModel
+    
+    init(viewModel: StartScreenViewModel) {
+        self._vm = ObservedObject(wrappedValue: viewModel)
+    }
     
     var body: some View {
         ZStack {
@@ -28,7 +32,7 @@ struct StartView: View {
                     .foregroundStyle(.secondary)
                 
                 Button {
-                    isImporting = true
+                    vm.perform(action: .userDidTapImportButton)
                 } label: {
                     Text("Select a File")
                         .font(.system(.title3, design: .rounded))
@@ -38,15 +42,15 @@ struct StartView: View {
                         .cornerRadius(8)
                 }
                 .buttonStyle(.plain)
-                .fileImporter(isPresented: $isImporting,
+                .fileImporter(isPresented: $vm.isImporting,
                               allowedContentTypes: [.video, .movie],
                     onCompletion: { result in
                             
                     switch result {
                         case .success(let url):
-                        handle(url)
+                        vm.perform(action: .userDidSelectFile(url))
                         case .failure(let error):
-                            print(error)
+                        vm.handle(error)
                     }
                 })
             }
@@ -56,30 +60,9 @@ struct StartView: View {
         .dynamicTypeSize(.large)
     }
     
-    func handle(_ url: URL) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-            guard let window = NSApplication.shared.mainWindow else { return }
-            
-            window.setSizeWithAnimation(to: CGSize(width: 800, height: 600))
-            window.styleMask.insert(.resizable)
-        }
-    }
-    
-}
-
-extension NSWindow {
-    
-
-    
-}
-
-extension NSPoint {
-    
- 
-    
 }
 
 #Preview {
-    StartView()
+    StartView(viewModel: .init(navigator: Router(window: MainWindow(contentRect: .zero))))
         .frame(width: 300, height: 240)
 }

@@ -26,4 +26,5 @@ class MainWindow: NSWindow {
         let app = NSApplication.shared
         app.terminate(nil)
     }
+    
 }

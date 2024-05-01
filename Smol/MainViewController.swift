@@ -10,11 +10,31 @@ import SwiftUI
 import MacKit
 
 class MainViewController: NSViewController {
+    
+    weak private var window: NSWindow?
+    
+    init(window: NSWindow) {
+        self.window = window
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func loadView() {
         view = NSView()
-//        view.backgroundColor = .systemBlue
         
-        let startView = NSHostingController(rootView: StartView())
+        guard let window = window as? MainWindow else {
+            assertionFailure("window's type should be MainWindow")
+            return
+        }
+        
+        let navigator = Router(window: window)
+        
+        let startScreenViewModel = StartScreenViewModel(navigator: navigator)
+        
+        let startView = NSHostingController(rootView: StartView(viewModel: startScreenViewModel))
         startView.view.forAutoLayout()
         view.addSubview(startView.view)
         addChild(startView)

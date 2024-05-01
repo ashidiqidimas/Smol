@@ -15,7 +15,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         )
         window.center()
         
-        let vc = MainViewController()
+        let vc = MainViewController(window: window)
         window.setContentViewController(vc)
         window.makeKeyAndOrderFront(nil)
         
