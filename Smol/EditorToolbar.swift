@@ -43,25 +43,15 @@ extension EditorToolbar: NSToolbarDelegate {
     private func makeExportButton() -> NSToolbarItem{
         let item = NSToolbarItem(itemIdentifier: .export)
 
-        let button = NSButton(title: "Button", target: nil, action: nil)
+        let button = ButtonLabel(title: "Export")
+            .withSize(.small)
+            .withCornerStyle(.rounded)
+            .forAutoLayout()
         button.isBordered = false
         button.identifier = .export
         button.backgroundColor = .systemBlue
-        
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.attributedTitle =
-            NSAttributedString(string: "Export", attributes: [
-                .font: NSFont.preferredFont(forTextStyle: .title3),
-                .foregroundColor: NSColor.white]
-            )
-        button.layer?.cornerRadius = 17
-
-        NSLayoutConstraint.activate([
-            button.widthAnchor.constraint(equalToConstant: 80),
-            button.heightAnchor.constraint(equalToConstant: 34)
-        ])
-        
         item.view = button
+        
         return item
     }
 }
