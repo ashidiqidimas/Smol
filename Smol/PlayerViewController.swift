@@ -12,6 +12,8 @@ import MacKit
 class PlayerViewController: NSViewController {
     
     private let data: Data
+    private let inputURL: URL
+    private var videoDimensions = CGSize(width: 1920, height: 1080)
     
     private lazy var playerView: AVPlayerView = {
         let view = AVPlayerView().forAutoLayout()
@@ -28,7 +30,36 @@ class PlayerViewController: NSViewController {
     
     init(data: Data) {
         self.data = data
+        
+        let tempDirectory = FileManager
+            .default
+            .temporaryDirectory
+
+        self.inputURL = tempDirectory
+            .appendingPathComponent("input.mp4")
+
         super.init(nibName: nil, bundle: nil)
+        
+        do {
+            try data.write(to: inputURL)
+        } catch {
+            assertionFailure("Failed to write data to url")
+        }
+        
+        Task {
+            do {
+                let asset = AVURLAsset(url: inputURL)
+                guard let track = try await asset.loadTracks(withMediaType: .video).first else { return }
+                let naturalSize = try await track.load(.naturalSize)
+                let preferredTransform = try await track.load(.preferredTransform)
+                let size = naturalSize.applying(preferredTransform)
+                self.videoDimensions = size
+                view.needsLayout = true
+                view.layoutSubtreeIfNeeded()
+            } catch {
+                fatalError(error.localizedDescription)
+            }
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -39,24 +70,16 @@ class PlayerViewController: NSViewController {
         view = NSView()
 
         view.addSubview(playerView)
-        playerView.edgesToSuperview()
+        NSLayoutConstraint.activate([
+            playerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            playerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            playerView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            playerView.heightAnchor.constraint(equalTo: playerView.widthAnchor, multiplier: videoDimensions.height / videoDimensions.width)
+        ])
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let tempDirectory = FileManager
-            .default
-            .temporaryDirectory
-
-        let inputURL = tempDirectory
-            .appendingPathComponent("input.mp4")
-
-        do {
-            try data.write(to: inputURL)
-        } catch {
-            assertionFailure("Failed to write data to url")
-        }
 
         let player = AVPlayer(url: inputURL)
         playerView.player = player
