@@ -70,11 +70,17 @@ class PlayerViewController: NSViewController {
         view = NSView()
 
         view.addSubview(playerView)
+        
         NSLayoutConstraint.activate([
-            playerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            playerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            playerView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            playerView.heightAnchor.constraint(equalTo: playerView.widthAnchor, multiplier: videoDimensions.height / videoDimensions.width)
+            playerView.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor),
+            playerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            playerView.leadingAnchor.constraint(lessThanOrEqualTo: view.leadingAnchor).withPriority(.defaultHigh),
+            playerView.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor).withPriority(.defaultHigh),
+            
+            playerView.heightAnchor.constraint(equalTo: playerView.widthAnchor, multiplier: videoDimensions.height / videoDimensions.width).withPriority(.defaultHigh),
+            playerView.heightAnchor.constraint(lessThanOrEqualTo: view.heightAnchor, constant: -40).withPriority(.required),
+            
         ])
     }
 
@@ -83,6 +89,18 @@ class PlayerViewController: NSViewController {
 
         let player = AVPlayer(url: inputURL)
         playerView.player = player
+    }
+    
+    override func viewDidAppear() {
+        super.viewDidAppear()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
+            guard let self else { return }
+            NSLayoutConstraint.activate([
+                view.widthAnchor.constraint(greaterThanOrEqualToConstant: EditorViewController.Constants.Player.minWidth),
+                view.heightAnchor.constraint(greaterThanOrEqualToConstant: EditorViewController.Constants.Player.minHeight)
+            ])
+        }
     }
     
 }

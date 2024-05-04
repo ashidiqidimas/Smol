@@ -9,6 +9,20 @@ import AppKit
 
 class EditorViewController: NSSplitViewController {
     
+    enum Constants {
+        static let windowSize = CGSize(width: 800, height: 600)
+        
+        enum Inspector {
+            static let minWidth = CGFloat(220)
+            static let maxWidth = CGFloat(320)
+        }
+        
+        enum Player {
+            static let minWidth = windowSize.width - Inspector.maxWidth
+            static let minHeight = windowSize.height
+        }
+    }
+    
     private let data: Data
     
     init(data: Data) {
@@ -23,8 +37,8 @@ class EditorViewController: NSSplitViewController {
         let inspectorVC = RightSidebarViewController()
         let inspectorItem = NSSplitViewItem(inspectorWithViewController: inspectorVC)
         inspectorItem.canCollapse = false
-        inspectorItem.minimumThickness = 220
-        inspectorItem.maximumThickness = 320
+        inspectorItem.minimumThickness = Constants.Inspector.minWidth
+        inspectorItem.maximumThickness = Constants.Inspector.maxWidth
         addSplitViewItem(inspectorItem)
     }
     

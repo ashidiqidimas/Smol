@@ -30,7 +30,7 @@ class Router: StartScreenRouterProtocol {
                 assertionFailure("self should not be nil")
                 return
             }
-            window.setSizeWithAnimation(to: CGSize(width: 800, height: 600))
+            window.setSizeWithAnimation(to: EditorViewController.Constants.windowSize)
             window.styleMask.insert(.resizable)
         }
     }
