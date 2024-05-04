@@ -9,6 +9,19 @@ import SwiftUI
 
 struct StartView: View {
     
+    enum Constants {
+        static let windowSize = CGSize(width: 320, height: 280)
+        static let padding = EdgeInsets(top: 48, leading: 40, bottom: 40, trailing: 40)
+        static let contentSpacing = CGFloat(16)
+        enum DropZone {
+            static let cornerRadius = CGFloat(16)
+            static let lineWidth = CGFloat(3)
+            static let dashWhenHighlighted: [CGFloat] = []
+            static let dashWhenUnhighlighted: [CGFloat] = [12]
+            static let animationDuration = 0.2
+        }
+    }
+    
     @ObservedObject private var vm: StartScreenViewModel
     
     init(viewModel: StartScreenViewModel) {
@@ -17,15 +30,19 @@ struct StartView: View {
     
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 16)
+            RoundedRectangle(cornerRadius: Constants.DropZone.cornerRadius)
                 .fill(.clear)
                 .stroke(
                     Color(nsColor: vm.isHighlighting ? NSColor.systemBlue : NSColor.tertiaryLabelColor),
-                    style: .init(lineWidth: 3, lineCap: .round, dash: vm.isHighlighting ? [] : [12])
+                    style: .init(
+                        lineWidth: Constants.DropZone.lineWidth,
+                        lineCap: .round,
+                        dash: vm.isHighlighting ? Constants.DropZone.dashWhenHighlighted : Constants.DropZone.dashWhenUnhighlighted
+                    )
                 )
-                .animation(.easeInOut(duration: 0.2), value: vm.isHighlighting)
+                .animation(.easeInOut(duration: Constants.DropZone.animationDuration), value: vm.isHighlighting)
             
-            VStack(spacing: 16) {
+            VStack(spacing: Constants.contentSpacing) {
                 Text("Drag your\nvideo here")
                     .font(.system(.title, design: .rounded))
                 
@@ -57,7 +74,7 @@ struct StartView: View {
             }
         }
         .onDrop(of: [.video, .movie], delegate: vm.dropListener)
-        .padding(EdgeInsets(top: 48, leading: 40, bottom: 40, trailing: 40))
+        .padding(Constants.padding)
         .ignoresSafeArea()
         .dynamicTypeSize(.large)
     }
@@ -65,6 +82,7 @@ struct StartView: View {
 }
 
 #Preview {
-    StartView(viewModel: .init(navigator: Router(window: MainWindow(contentRect: .zero))))
-        .frame(width: 300, height: 240)
+    let windowSize = StartView.Constants.windowSize
+    return StartView(viewModel: .init(navigator: Router(window: MainWindow(contentRect: .zero))))
+        .frame(width: windowSize.width, height: windowSize.height)
 }
