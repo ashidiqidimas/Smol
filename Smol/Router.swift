@@ -8,7 +8,7 @@
 import AppKit
 
 protocol StartScreenRouterProtocol {
-    func routeToEditor(with url: URL)
+    func routeToEditor(with data: Data)
 }
 
 class Router: StartScreenRouterProtocol {
@@ -19,7 +19,7 @@ class Router: StartScreenRouterProtocol {
         self.window = window
     }
     
-    func routeToEditor(with url: URL) {
+    func routeToEditor(with data: Data) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
             guard let self else {
                 assertionFailure("self should not be nil")

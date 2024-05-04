@@ -20,9 +20,10 @@ struct StartView: View {
             RoundedRectangle(cornerRadius: 16)
                 .fill(.clear)
                 .stroke(
-                    Color(nsColor: NSColor.tertiaryLabelColor),
-                    style: .init(lineWidth: 3,lineCap: .round, dash: [12])
+                    Color(nsColor: vm.isHighlighting ? NSColor.systemBlue : NSColor.tertiaryLabelColor),
+                    style: .init(lineWidth: 3, lineCap: .round, dash: vm.isHighlighting ? [] : [12])
                 )
+                .animation(.easeInOut(duration: 0.2), value: vm.isHighlighting)
             
             VStack(spacing: 16) {
                 Text("Drag your\nvideo here")
@@ -55,6 +56,7 @@ struct StartView: View {
                 })
             }
         }
+        .onDrop(of: [.video, .movie], delegate: vm.dropListener)
         .padding(EdgeInsets(top: 48, leading: 40, bottom: 40, trailing: 40))
         .ignoresSafeArea()
         .dynamicTypeSize(.large)
