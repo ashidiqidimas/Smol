@@ -21,7 +21,7 @@ class Router: StartScreenRouterProtocol {
     
     func routeToEditor(with data: Data, delayAnimation: Bool) {
         
-        let editorVC = EditorViewController()
+        let editorVC = EditorViewController(data: data)
         window.setContentViewController(editorVC)
         
         let delayTime = delayAnimation ? 0.2 : 0.0
