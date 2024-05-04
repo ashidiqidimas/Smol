@@ -30,9 +30,7 @@ class MainViewController: NSViewController {
             return
         }
         
-        let navigator = Router(window: window)
-        
-        let startScreenViewModel = StartScreenViewModel(navigator: navigator)
+        let startScreenViewModel = StartScreenViewModel(navigator: window.router)
         
         let startView = NSHostingController(rootView: StartView(viewModel: startScreenViewModel))
         startView.view.forAutoLayout()

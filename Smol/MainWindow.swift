@@ -9,6 +9,9 @@ import AppKit
 import MacKit
 
 class MainWindow: NSWindow {
+    
+    private(set) var router: Router!
+    
     init(contentRect: NSRect) {
         super.init(
             contentRect: contentRect,
@@ -16,6 +19,8 @@ class MainWindow: NSWindow {
             backing: .buffered,
             defer: false
         )
+        
+        router = Router(window: self)
    
         title = "Smol"
         titlebarAppearsTransparent = true

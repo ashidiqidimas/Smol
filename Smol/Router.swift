@@ -8,7 +8,7 @@
 import AppKit
 
 protocol StartScreenRouterProtocol {
-    func routeToEditor(with data: Data)
+    func routeToEditor(with data: Data, delayAnimation: Bool)
 }
 
 class Router: StartScreenRouterProtocol {
@@ -19,8 +19,13 @@ class Router: StartScreenRouterProtocol {
         self.window = window
     }
     
-    func routeToEditor(with data: Data) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
+    func routeToEditor(with data: Data, delayAnimation: Bool) {
+        
+        let editorVC = EditorViewController()
+        window.setContentViewController(editorVC)
+        
+        let delayTime = delayAnimation ? 0.2 : 0.0
+        DispatchQueue.main.asyncAfter(deadline: .now() + delayTime) { [weak self] in
             guard let self else {
                 assertionFailure("self should not be nil")
                 return

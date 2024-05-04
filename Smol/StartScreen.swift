@@ -66,7 +66,10 @@ struct StartView: View {
                             
                     switch result {
                         case .success(let url):
-                        vm.perform(action: .userDidSelectFile(url))
+                        if url.startAccessingSecurityScopedResource() {
+                            defer { url.stopAccessingSecurityScopedResource() }
+                            vm.perform(action: .userDidSelectFile(url))
+                        }
                         case .failure(let error):
                         vm.handle(error)
                     }
