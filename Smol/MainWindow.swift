@@ -25,6 +25,7 @@ class MainWindow: NSWindow {
         title = "Smol"
         titlebarAppearsTransparent = true
         titleVisibility  = .hidden
+        toolbarStyle = .unified
     }
     
     override func close() {

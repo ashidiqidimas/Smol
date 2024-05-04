@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		139689F52BE6165800353E80 /* EditorToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139689F42BE6165800353E80 /* EditorToolbar.swift */; };
+		139689F72BE6292700353E80 /* ButtonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139689F62BE6292700353E80 /* ButtonLabel.swift */; };
 		13FDA05E2BE2122A00209C0A /* StartScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FDA05D2BE2122A00209C0A /* StartScreenViewModel.swift */; };
 		13FDA0602BE2156B00209C0A /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FDA05F2BE2156B00209C0A /* Router.swift */; };
 		13FDA0622BE5F4D700209C0A /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FDA0612BE5F4D700209C0A /* EditorViewController.swift */; };
@@ -24,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		139689F42BE6165800353E80 /* EditorToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorToolbar.swift; sourceTree = "<group>"; };
+		139689F62BE6292700353E80 /* ButtonLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonLabel.swift; sourceTree = "<group>"; };
 		13FDA05D2BE2122A00209C0A /* StartScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenViewModel.swift; sourceTree = "<group>"; };
 		13FDA05F2BE2156B00209C0A /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		13FDA0612BE5F4D700209C0A /* EditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
@@ -76,9 +80,11 @@
 				13FEBC532BE1ED4B005A9A0B /* StartScreen.swift */,
 				13FDA0612BE5F4D700209C0A /* EditorViewController.swift */,
 				13FDA0672BE606BA00209C0A /* PlayerViewController.swift */,
+				139689F42BE6165800353E80 /* EditorToolbar.swift */,
 				13FDA0652BE606A700209C0A /* RightSidebarViewController.swift */,
 				13FEBC552BE1F5EF005A9A0B /* MainMenu.swift */,
 				13FEBC4F2BE1E90D005A9A0B /* MainWindow.swift */,
+				139689F62BE6292700353E80 /* ButtonLabel.swift */,
 				13FDA05D2BE2122A00209C0A /* StartScreenViewModel.swift */,
 				13FDA0632BE5F8BB00209C0A /* DropListener.swift */,
 				13FDA05F2BE2156B00209C0A /* Router.swift */,
@@ -165,6 +171,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				139689F52BE6165800353E80 /* EditorToolbar.swift in Sources */,
 				13FDA0642BE5F8BB00209C0A /* DropListener.swift in Sources */,
 				13FEBC502BE1E90D005A9A0B /* MainWindow.swift in Sources */,
 				13FDA0622BE5F4D700209C0A /* EditorViewController.swift in Sources */,
@@ -172,6 +179,7 @@
 				13FEBC3C2BE1E6F4005A9A0B /* AppDelegate.swift in Sources */,
 				13FDA0682BE606BA00209C0A /* PlayerViewController.swift in Sources */,
 				13FEBC542BE1ED4C005A9A0B /* StartScreen.swift in Sources */,
+				139689F72BE6292700353E80 /* ButtonLabel.swift in Sources */,
 				13FEBC4B2BE1E825005A9A0B /* main.swift in Sources */,
 				13FDA05E2BE2122A00209C0A /* StartScreenViewModel.swift in Sources */,
 				13FDA0662BE606A700209C0A /* RightSidebarViewController.swift in Sources */,

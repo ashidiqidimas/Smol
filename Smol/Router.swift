@@ -32,6 +32,7 @@ class Router: StartScreenRouterProtocol {
             }
             window.setSizeWithAnimation(to: EditorViewController.Constants.windowSize)
             window.styleMask.insert(.resizable)
+            window.toolbar = EditorToolbar()
         }
     }
     
